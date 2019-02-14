@@ -1,0 +1,35 @@
+npm -- node package manager
+
+to start npm - npm init
+
+package.json
+    scripts == shortcuts
+
+dependencies
+    vuecli / nodemon (nodemon very insecure, good for development but not live)
+
+global dependency
+    dependency installed onto computer rather than locally to the program
+peer dependency
+    necessary dependency but npm cannot install itself
+
+node.env = can set dev or server to set which dependencies are downloaded
+
+ctrl+space activates intellisense
+    use to find dependency version for setup
+
+semantic version 
+#.#.#
+major.minor.patch
+patch - for bug fixes
+minor - adding features but will not change anything with the original program
+        *backward compatibility
+major - major changes that may not be backwards compatible
+
+# look into docker
+
+install _____ --save-dev
+    installs to dev_dependencies
+
+.js
+const - constant variable
