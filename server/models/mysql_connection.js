@@ -1,4 +1,4 @@
-const mysql =   require('mysql'),
+const mysql =   require('mysql');
                 require('dotenv').load();  //reads .env and loads all into environment variables
 
 
@@ -8,11 +8,12 @@ const mysql =   require('mysql'),
         //connection and simply give the request that connection
 
 const conn = mysql.createPool({
-    host: process.env,MYSQL_HOST,  // object of .env items
-    user: process.env,MYSQL_USER,
-    password: process.env,MYSQL_PASSWORD, 
-    database: process.env,MYSQL_DB, 
+    host: process.env.MYSQL_HOST,  // object of .env items
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD, 
+    database: process.env.MYSQL_DB, 
     connectionLimit: 10     //limit should be based on estimate of how many concurrent users
+    //insecureAuth: true
 });
 
 module.exports

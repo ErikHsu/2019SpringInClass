@@ -1,5 +1,5 @@
 const express   = require('express');
-const users     =require('./controllers/users'); //require returns what is exported in users.js
+const users     = require('./controllers/users'); //require returns what is exported in users.js
 
 const app = express();
 const port = 3000;
