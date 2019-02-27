@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
 
-    user.add({FirstName: "Steve", LastName: "Irwin", Password: "BobbyTables"}, (err, data) => {
+    user.add({ FirstName: "Steve", LastName: "Irwin", Password: "BobbyTables" }, (err, data) => {
         if(err) throw err;
         res.send(data);
     });
