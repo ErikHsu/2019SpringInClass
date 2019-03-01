@@ -1,0 +1,7 @@
+http://localhost:3000/users/10?limit=10&page=10
+
+/10?limit=10&page=10 is the parameter
+
+--Postman--
+'Headers' allows for adding new Headers
+'Body' 
