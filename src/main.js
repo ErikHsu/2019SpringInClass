@@ -3,6 +3,7 @@
 import Vue from 'vue' // default export
 import App from './App.vue'
 import router from './router'
+import 'bootstrap/scss/bootstrap.scss'
 
 Vue.config.productionTip = false
 

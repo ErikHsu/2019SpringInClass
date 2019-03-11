@@ -1,0 +1,21 @@
+to build: npm run build
+    creates dist folder; webpack packs all necessary for publication
+to open vue ui: vue ui
+
+github pages: service for static hosting
+
+npm run serve: vue-cli built in server; dev test server
+
+HMR - hot module reloading; once code saved, page updates automatically
+
+webpack: pulls <template> to set as vue object, <script>, and css <style>
+
+<template> can only hold 1 object (i.e. <div> </div>)
+
+App.vue holds scss formatting
+
+Note: remember when installing packages, edit package.json then run "npm i"
+
+Vue binding -- ':' running down; '@' running up
+    v-model is for 2-way binding: i.e. age is in title but also in textbox
+    bound properties turn it into JS
