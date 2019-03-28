@@ -17,10 +17,14 @@
                 <router-link class="nav-link" to="MyFriends" active-class="active">MyFriends</router-link>
             </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
+        <form class = "form-inl ine mt-2 mt-md 0" v-if="!user">
+            <a href="#" class="nav-link"@click.prevent="login">Login</a>
+            <a href="#" class="nav-Link">Sign Up"</a>
+            <span class = "navbar-tax">Welcome Erik</span>
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <span class="navbar-text" v-if="user">Welcome {{user.name}}</span>
     </div>
     </nav>
     
@@ -28,7 +32,14 @@
 
 <script>
 export default {
-
+    data: () => ({
+        user: null
+    }),        
+    methods: {
+        login() {
+            this.user = { name: "Erik" };
+        }
+    }
 }
 </script>
 

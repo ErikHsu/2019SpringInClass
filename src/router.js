@@ -26,6 +26,9 @@ export default new Router({
       path: './MyFriends',
       name: 'my-friends',
       component: MyFriends
-    }
+    },
+
+      path: '/about',
+
   ]
 })
