@@ -18,7 +18,7 @@
             </li>
         </ul>
         <form class = "form-inl ine mt-2 mt-md 0" v-if="!user">
-            <a href="#" class="nav-link"@click.prevent="login">Login</a>
+            <a href="#" class="nav-link" @click.prevent="login">Login</a>
             <a href="#" class="nav-Link">Sign Up"</a>
             <span class = "navbar-tax">Welcome Erik</span>
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
