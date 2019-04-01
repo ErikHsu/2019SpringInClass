@@ -1,0 +1,25 @@
+[View / Template] <- [Content / VM / vue obj.] <- [model / service / JS object] <- server_controller
+
+[JS object] -> uses [Api service] -> *fetch* -> [server_controller]
+
+[server_controller] <- [model] <- [MySql]
+
+
+breakdown:
+
+MySql  Server                   Client
+mySql | -> model -> controller | -> model/service/object -> content/vm/vue -> view/template 
+
+vue lifecycle: diagram for flow of function/data in vue
+
+.then //resolve your own promises
+
+.json takes an object, reads and converts to plaintext for use
+
+=> returns
+
+cors - allows fetch to obtain item from client side
+
+sc creates a scaffold for vue
+
+b4-card pill head 
