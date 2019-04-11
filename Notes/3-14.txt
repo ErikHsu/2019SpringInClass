@@ -1,8 +1,0 @@
-**Components**
-
-Component is defined by the route (router.js)
-Components can be custom HTML tags/variables, imported into the views.
-
-scss requires ; at end of imports
-
-'scaffold' to autogen basic structure

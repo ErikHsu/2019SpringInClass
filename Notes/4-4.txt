@@ -1,5 +1,0 @@
-api calls fetch
-
-Register.vue -> users -> api 
-
-toaster library
