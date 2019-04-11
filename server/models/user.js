@@ -8,9 +8,12 @@ const model = {
         return await conn.query("SELECT * FROM 2019Spring_Persons");
     },
     async get(id){
-        return await conn.query("SELECT * FROM 2019Spring_Persons WHERE Id=?", id);
+        const data: await conn.query("SELECT * FROM 2019Spring_Persons WHERE Id=?", id);
     },
     async add(input){
+        if(!input.Password){
+            cb(Error('Password is required'));
+        }
         if(input.Password.length < 8){
             cb(Error('Password must be at least 8 characters'));
         }

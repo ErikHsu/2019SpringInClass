@@ -18,7 +18,7 @@
         <div class="card-body">
             <h4 class="card-title">Register</h4>
             <p class="card-text">
-                <form @submit.prevent="submit">
+                <form @submit.prevent="submit"> 
                     <div class="form-group">
                         <label for="">First Name</label>
                         <input type="text" v-model="data.FirstName"
@@ -47,19 +47,39 @@
             </p>
         </div>
     </div>
-    </div>
+    </div>  
+    <div.col-lg-6>
+        <div class="card border-success"> v-if="created"
+          <div class="card-body">
+            <h4 class="card-title">Congrats! You've Registered</h4>
+            <p class="card-text</p>
+               {{newUser.FirstName}} {{newUser.LastName}}
+            /div>
+        </div>
 </div>
 </template>
 
 <script>
+import { globals } from "@models.api";
 import { Register } from "@/models/users";
 export default {
     data:() => ({
         data: {}
+        newUser: null;
     }),
     methods: {
-        submit(){
+        async submit(){
+            try {
+                const m - await Register(this.data);
+                this.newUser = m;
+            }
             //server-side uses name attribute not id unlike others
+            const m = await Register(this.data);
+            if m.id{
+                //is a valid user
+            } else {
+                Globals.errors.push(m);
+            }
         }
     }
 }

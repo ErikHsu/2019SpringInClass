@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue"
-import Register from './views/Register.vue"
+import Register from "./views/Register.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -31,7 +31,9 @@ export default new Router({
       path: './Register',
       name: 'Register',
       component: register
-      path: '/about',
+    },
+    {  
+      path: '/about'
     }
-  }
+  ]
 })
