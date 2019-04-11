@@ -17,7 +17,7 @@
         </div>
         <div class="card-body">
             <h4 class="card-title">Register</h4>
-            <p class="card-text">
+            <div class="card-text">
                 <form @submit.prevent="submit"> 
                     <div class="form-group">
                         <label for="">First Name</label>
@@ -44,7 +44,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-            </p>
+            </div>
         </div>
     </div>
     </div>  
@@ -52,33 +52,35 @@
         <div class="card border-success"> v-if="created"
           <div class="card-body">
             <h4 class="card-title">Congrats! You've Registered</h4>
-            <p class="card-text</p>
+            <p class="card-text">
                {{newUser.FirstName}} {{newUser.LastName}}
-            /div>
+            </p>
         </div>
+    </div>
 </div>
 </template>
 
 <script>
 import { globals } from "@models.api";
 import { Register } from "@/models/users";
+import toastr from 'toastr';
+import 'toastr/build/toastr.css';
+
+
 export default {
     data:() => ({
-        data: {}
-        newUser: null;
+        data: {},
+        newUser: null
     }),
     methods: {
         async submit(){
             try {
-                const m - await Register(this.data);
+                const m = await Register(this.data);
                 this.newUser = m;
-            }
-            //server-side uses name attribute not id unlike others
-            const m = await Register(this.data);
-            if m.id{
-                //is a valid user
-            } else {
-                Globals.errors.push(m);
+                toastr.success("You've registered successfully!")
+            } catch (error) {
+                Globals.errors.push(error);
+                toastr.error(error.msg);
             }
         }
     }
