@@ -35,7 +35,7 @@ const model = {
     },
     async login(email, password){
         const data = await conn.query(`SELECT * FROM 2019Spring_Persons P
-                        Join 2019Spring_ContactMethods CM On CM.Person_Id = P.id
+                        Join 2019Spring_ContactMethods CM On CM.user_id = P.id
                     WHERE CM.Value=?`, email);
         if(data.length == 0) {
         throw Error('User Not Found');
@@ -43,13 +43,14 @@ const model = {
         const x = await bcrypt.compare(password, data[0].Password);
         if(x){
             const user = { ...data[0], password: null};
+            return {user, token: jwt.sign(user,JWT_SECRET) };
         } else {
             throw Error('Wrong Password');
         }
     },
     async changePassword(email, oldPassword, newPassword){
         const data = await conn.query(`SELECT * FROM 2019Spring_Persons P
-                        Join 2019Spring_ContactMethods CM On CM.Person_Id = P.id
+                        Join 2019Spring_ContactMethods CM On CM.user_id = P.id
                     WHERE CM.Value=?`, email);
         if(data.length == 0){
             throw Error('User Not Found')

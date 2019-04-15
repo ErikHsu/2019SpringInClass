@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
+import { Globals } from './models/api';
 
 Vue.use(Router)
 
@@ -41,3 +42,15 @@ export default new Router({
     }
   ]
 })
+
+
+//race condition without 'return', another fix is to use else for the last method
+router.beforeEach((to, from, next) => {
+  const publicRoutes = ['home', 'login', 'register'];
+  if(!publicRoutes.includes( to.name ) && !Globals.user) {
+    return next('login');
+  }
+  next();
+})
+
+export default router;

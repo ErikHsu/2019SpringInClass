@@ -8,7 +8,7 @@ const port = 3000;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
 app.use(function(req, res, next) {
@@ -17,10 +17,11 @@ app.use(function(req, res, next) {
         req.user = userModel.getFromToken(token);
     } catch (error) {
         const openActions = ['POST/users', 'POST/users/login']
-        if(!openActions.includes(req.method + req.path)){
+        if(req.method != "OPTIONS" && !openActions.includes(req.method + req.path)){
             next(Error("Login Required"));
         }
     }
+    next();
 });
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
