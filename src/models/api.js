@@ -18,7 +18,7 @@ export async function api(url, data) {
     if(!data) {
         response = await fetch(API_ROUTE + url, { headers });
     } else {
-        rresponse = fetch(API_ROOT + url, {
+        response = fetch(API_ROOT + url, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             headers: {
@@ -29,7 +29,7 @@ export async function api(url, data) {
             body: JSON.stringify(data), //body data type must match Content-Type header
         })
 };
-if(!respomnse.ok) {
+if(!response.ok) {
     throw await response.json();
 };
 return await response.json();

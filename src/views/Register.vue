@@ -48,15 +48,6 @@
         </div>
     </div>
     </div>  
-    <div.col-lg-6>
-        <div class="card border-success"> v-if="created"
-          <div class="card-body">
-            <h4 class="card-title">Congrats! You've Registered</h4>
-            <p class="card-text">
-               {{newUser.FirstName}} {{newUser.LastName}}
-            </p>
-        </div>
-    </div>
 </div>
 </template>
 
@@ -74,6 +65,8 @@ export default {
         async submit(){
             try {
                 const m = await Register(this.data);
+                //After Register() user is verified
+                this.$router.push('/MyFriends')
                 this.newUser = m;
                 toastr.success("You've registered successfully!")
             } catch (error) {

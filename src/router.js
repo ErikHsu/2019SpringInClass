@@ -8,7 +8,7 @@ import { Globals } from './models/api';
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -46,8 +46,10 @@ export default new Router({
 
 //race condition without 'return', another fix is to use else for the last method
 router.beforeEach((to, from, next) => {
+  console.log({ to, from });
   const publicRoutes = ['home', 'login', 'register'];
   if(!publicRoutes.includes( to.name ) && !Globals.user) {
+    Globals.redirectRoute = {name: to.name, path: to.path, params: to.params, query: to.query, hash: to.hash};
     return next('login');
   }
   next();

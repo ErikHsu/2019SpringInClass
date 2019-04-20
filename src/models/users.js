@@ -12,7 +12,7 @@ export async function Register(data) {
     return x;
 }
 
-export async function Login(data){
+export async function Login(data) {
     const x = await api("users/login", data)
     Globals.user = x.user;
     Globals.token = x.token;
